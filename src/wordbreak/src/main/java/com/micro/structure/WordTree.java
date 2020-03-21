@@ -19,7 +19,7 @@ public class WordTree {
 	
 	public WordTree(String []words) {
 		if (words == null) { return; }
-		roots = new HashMap<Character, Node>(words.length);
+		roots = new HashMap<Character, Node>(26);
 		for (String word : words) {
 			this.add(word);
 		}
@@ -72,7 +72,7 @@ public class WordTree {
 		Character key = word.charAt(charIndex);
 		Node node2 = null;
 		if (node.children == null) {
-			node.children = new HashMap<Character, Node>();
+			node.children = new HashMap<Character, Node>(INIT_MAP_SIZE);
 			node2 = new Node(word, charIndex);
 			node.children.put(key, node2);
 		} else {
